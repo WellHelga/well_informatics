@@ -4,4 +4,6 @@ def accum(x):
         y2 = j.upper() + j.lower() * i
         y1.append(y2)
     return '-'.join(y1)
-print(accum("abcd"))
+z = input()
+res = accum(z)
+print(res)
