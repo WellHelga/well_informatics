@@ -1,7 +1,3 @@
-# a = int(input())
-# b = int(input())
-# c = int(input())
-
 def kb_b(kb):
     return kb * 1024
 def b_kb(b):
