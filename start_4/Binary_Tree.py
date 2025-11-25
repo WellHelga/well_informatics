@@ -12,62 +12,62 @@ class BinaryTree:
         if self.root is None:
             self.root = TreeNode(data)
         else:
-            self._insert_recursive(self.root, data)
+            self.insert_recursive(self.root, data)
 
-    def _insert_recursive(self, node, data):
+    def insert_recursive(self, node, data):
         if data < node.data:
             if node.lt is None:
                 node.lt = TreeNode(data)
             else:
-                self._insert_recursive(node.lt, data)
+                self.insert_recursive(node.lt, data)
         elif data > node.data:
             if node.rt is None:
                 node.rt = TreeNode(data)
             else:
-                self._insert_recursive(node.rt, data)
+                self.insert_recursive(node.rt, data)
 
     def search(self, data):
-        return self._search_recursive(self.root, data)
+        return self.search_recursive(self.root, data)
 
-    def _search_recursive(self, node, data):
+    def search_recursive(self, node, data):
         if node is None or node.data == data:
             return node
         if data < node.data:
-            return self._search_recursive(node.lt, data)
+            return self.search_recursive(node.lt, data)
         else:
-            return self._search_recursive(node.rt, data)
+            return self.search_recursive(node.rt, data)
 
     def in_order_traversal(self):
         res = []
-        self._in_order_recursive(self.root, res)
+        self.in_order_recursive(self.root, res)
         return res
 
-    def _in_order_recursive(self, node, res):
+    def in_order_recursive(self, node, res):
         if node:
-            self._in_order_recursive(node.lt, res)
+            self.in_order_recursive(node.lt, res)
             res.append(node.data)
-            self._in_order_recursive(node.rt, res)
+            self.in_order_recursive(node.rt, res)
 
     def pre_order_traversal(self):
         res = []
-        self._pre_order_recursive(self.root, res)
+        self.pre_order_recursive(self.root, res)
         return res
 
-    def _pre_order_recursive(self, node, res):
+    def pre_order_recursive(self, node, res):
         if node:
             res.append(node.data)
-            self._pre_order_recursive(node.lt, res)
-            self._pre_order_recursive(node.rt, res)
+            self.pre_order_recursive(node.lt, res)
+            self.pre_order_recursive(node.rt, res)
 
     def post_order_traversal(self):
         res = []
-        self._post_order_recursive(self.root, res)
+        self.post_order_recursive(self.root, res)
         return res
 
-    def _post_order_recursive(self, node, res):
+    def post_order_recursive(self, node, res):
         if node:
-            self._post_order_recursive(node.lt, res)
-            self._post_order_recursive(node.rt, res)
+            self.post_order_recursive(node.lt, res)
+            self.post_order_recursive(node.rt, res)
             res.append(node.data)
 
 tree = BinaryTree()
